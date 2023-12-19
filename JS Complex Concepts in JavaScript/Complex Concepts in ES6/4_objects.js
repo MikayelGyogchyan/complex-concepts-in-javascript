@@ -24,3 +24,16 @@ const obj = Object.assign({}, first, {
 console.log(Object.entries(obj)) // [ [ 'a', 1 ], [ 'c', 2 ], [ 'd', 3 ] ]
 console.log(Object.keys(obj)) // [ 'a', 'c', 'd' ]
 console.log(Object.values(obj)) // [ 1, 2, 3 ]
+
+// An array is also an object and in its prototype it can have functions
+// related to objects.
+// If we want to get only own keys of the object, then we need to add a 
+// checkup if we doesn't want to enter to the prototype, because a loop
+// runs also throughout the prototype
+// This permits us to reduce errors 
+
+for (let key in person) {
+  if(person.hasOwnProperty(key)) {
+    console.log(person[key]);
+  }
+}
